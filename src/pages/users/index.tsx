@@ -1,22 +1,9 @@
-import {
-  Box,
-  Button,
-  Checkbox,
-  Flex,
-  Heading,
-  Icon,
-  Table,
-  Tbody,
-  Th,
-  Thead,
-  Tr,
-  Td,
-  Text,
-} from "@chakra-ui/react";
-import { RiAddLine, RiPencilLine } from "react-icons/ri";
+import { Box, Button, Flex, Heading, Icon } from "@chakra-ui/react";
+import { RiAddLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
+import { UsersTable } from "../../components/UsersTable";
 
 export default function UserList() {
   return (
@@ -44,101 +31,7 @@ export default function UserList() {
             </Button>
           </Flex>
 
-          <Table colorScheme="whiteAlpha">
-            <Thead>
-              <Tr>
-                <Th px="6" color="gray.50" width="8">
-                  <Checkbox colorScheme="pink" />
-                </Th>
-                <Th>Usuário</Th>
-                <Th>Data de cadastro</Th>
-                <Th width="8"></Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td px="6">
-                  <Checkbox colorScheme="pink" />
-                </Td>
-                <Td>
-                  <Box>
-                    <Text fontWeight="bold">Luís V. Capelletto</Text>
-                    <Text fontSize="sm" color="gray.300">
-                      thecapellett@gmail.com
-                    </Text>
-                  </Box>
-                </Td>
-                <Td>02 de Junho, 2021</Td>
-                <Td>
-                  <Button
-                    as="a"
-                    size="sm"
-                    cursor="pointer"
-                    fontSize="sm"
-                    colorScheme="blue"
-                    leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
-                  >
-                    Editar
-                  </Button>
-                </Td>
-              </Tr>
-
-              <Tr>
-                <Td px="6">
-                  <Checkbox colorScheme="pink" />
-                </Td>
-                <Td>
-                  <Box>
-                    <Text fontWeight="bold">Luís V. Capelletto</Text>
-                    <Text fontSize="sm" color="gray.300">
-                      thecapellett@gmail.com
-                    </Text>
-                  </Box>
-                </Td>
-                <Td>02 de Junho, 2021</Td>
-                <Td>
-                  <Button
-                    as="a"
-                    size="sm"
-                    cursor="pointer"
-                    fontSize="sm"
-                    colorScheme="blue"
-                    leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
-                  >
-                    Editar
-                  </Button>
-                </Td>
-              </Tr>
-
-              <Tr>
-                <Td px="6">
-                  <Checkbox colorScheme="pink" />
-                </Td>
-                <Td>
-                  <Box>
-                    <Text fontWeight="bold">Luís V. Capelletto</Text>
-                    <Text fontSize="sm" color="gray.300">
-                      thecapellett@gmail.com
-                    </Text>
-                  </Box>
-                </Td>
-                <Td>02 de Junho, 2021</Td>
-                <Td>
-                  <Button
-                    as="a"
-                    size="sm"
-                    cursor="pointer"
-                    fontSize="sm"
-                    colorScheme="blue"
-                    leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
-                  >
-                    Editar
-                  </Button>
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
-
+          <UsersTable />
           <Pagination />
         </Box>
       </Flex>
