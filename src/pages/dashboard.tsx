@@ -1,5 +1,5 @@
 import { Flex, SimpleGrid, Box, Text, theme } from "@chakra-ui/react";
-import { ApexOptions } from 'apexcharts';
+import { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
 
 import { Header } from "../components/Header";
@@ -37,7 +37,7 @@ const options: ApexOptions = {
       color: theme.colors.gray[600],
     },
     categories: [
-      "2021-05-31T00:00:00.000Z",
+      "2021-06-01T00:00:00.000Z",
       "2021-05-30T00:00:00.000Z",
       "2021-05-29T00:00:00.000Z",
       "2021-05-28T00:00:00.000Z",
