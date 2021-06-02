@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
+import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 
 export default function UserList() {
@@ -34,6 +35,7 @@ export default function UserList() {
             <Button
               as="a"
               size="sm"
+              cursor="pointer"
               fontSize="sm"
               colorScheme="pink"
               leftIcon={<Icon as={RiAddLine} fontSize="20" />}
@@ -45,7 +47,7 @@ export default function UserList() {
           <Table colorScheme="whiteAlpha">
             <Thead>
               <Tr>
-                <Th px="6" color="gray.300" width="8">
+                <Th px="6" color="gray.50" width="8">
                   <Checkbox colorScheme="pink" />
                 </Th>
                 <Th>Usuário</Th>
@@ -71,6 +73,7 @@ export default function UserList() {
                   <Button
                     as="a"
                     size="sm"
+                    cursor="pointer"
                     fontSize="sm"
                     colorScheme="blue"
                     leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
@@ -79,6 +82,7 @@ export default function UserList() {
                   </Button>
                 </Td>
               </Tr>
+
               <Tr>
                 <Td px="6">
                   <Checkbox colorScheme="pink" />
@@ -96,6 +100,7 @@ export default function UserList() {
                   <Button
                     as="a"
                     size="sm"
+                    cursor="pointer"
                     fontSize="sm"
                     colorScheme="blue"
                     leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
@@ -104,6 +109,7 @@ export default function UserList() {
                   </Button>
                 </Td>
               </Tr>
+
               <Tr>
                 <Td px="6">
                   <Checkbox colorScheme="pink" />
@@ -121,6 +127,7 @@ export default function UserList() {
                   <Button
                     as="a"
                     size="sm"
+                    cursor="pointer"
                     fontSize="sm"
                     colorScheme="blue"
                     leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
@@ -131,6 +138,8 @@ export default function UserList() {
               </Tr>
             </Tbody>
           </Table>
+
+          <Pagination />
         </Box>
       </Flex>
     </Box>
