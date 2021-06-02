@@ -62,7 +62,7 @@ const series = [
 ];
 
 interface ChartBoxProps {
-  title: string;
+  title?: string;
 }
 
 export function ChartBox({ title }: ChartBoxProps) {
