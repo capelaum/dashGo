@@ -1,6 +1,7 @@
-import { Box, Button, Flex, Heading, Icon } from "@chakra-ui/react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { RiAddLine } from "react-icons/ri";
+import { Box, Button, Flex, Heading, Icon } from "@chakra-ui/react";
 
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
@@ -8,6 +9,12 @@ import { Sidebar } from "../../components/Sidebar";
 import { UsersTable } from "../../components/UsersTable";
 
 export default function UserList() {
+  useEffect(() => {
+    fetch("http://localhost:3000/api/users")
+      .then(response => response.json())
+      .then(data => console.log(data));
+  }, []);
+
   return (
     <Box>
       <Header />
