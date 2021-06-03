@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Heading, Icon } from "@chakra-ui/react";
 import Link from "next/link";
 import { RiAddLine } from "react-icons/ri";
+
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
