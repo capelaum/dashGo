@@ -1,16 +1,30 @@
-import { Tr, Td, Checkbox, Text, Button, Box, Icon } from "@chakra-ui/react";
+import {
+  Tr,
+  Td,
+  Checkbox,
+  Text,
+  Box,
+  Icon,
+  IconButton,
+} from "@chakra-ui/react";
 import { RiPencilLine } from "react-icons/ri";
 
 interface UsersTableItemProps {
   name: string;
   email: string;
   date: string;
+  isWideVersion: boolean;
 }
 
-export function UsersTableItem({ name, email, date }: UsersTableItemProps) {
+export function UsersTableItem({
+  name,
+  email,
+  date,
+  isWideVersion,
+}: UsersTableItemProps) {
   return (
     <Tr>
-      <Td px="6">
+      <Td px={["4", "4", "6"]}>
         <Checkbox colorScheme="pink" />
       </Td>
       <Td>
@@ -21,18 +35,19 @@ export function UsersTableItem({ name, email, date }: UsersTableItemProps) {
           </Text>
         </Box>
       </Td>
-      <Td>{date}</Td>
+      {isWideVersion && <Td>{date}</Td>}
       <Td>
-        <Button
+        <IconButton
+          aria-label="edit user"
           as="a"
           size="sm"
           cursor="pointer"
           fontSize="sm"
-          colorScheme="blue"
-          leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
+          colorScheme="purple"
+          icon={<Icon as={RiPencilLine} fontSize="16" />}
         >
-          Editar
-        </Button>
+          {isWideVersion ? "Editar" : ""}
+        </IconButton>
       </Td>
     </Tr>
   );

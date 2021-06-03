@@ -12,7 +12,7 @@ export default function Dashboard() {
       <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
         <Sidebar />
 
-        <SimpleGrid flex="1" gap="4" minChildWidth="320px" align="flex-start">
+        <SimpleGrid flex="1" gap="4" minChildWidth="300px" align="flex-start">
           <ChartBox title="Inscritos da semana" />
           <ChartBox title="Taxa de abertura" />
         </SimpleGrid>
