@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 
 export function SearchBox() {
+  // const [search, setSearch] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   return (
@@ -27,6 +28,8 @@ export function SearchBox() {
         placeholder="Buscar na plataforma"
         _placeholder={{ color: "gray.400" }}
         ref={searchInputRef}
+        // value={search}
+        // onChange={setSearch(e.target.value)}
       />
 
       <Icon as={RiSearchLine} fontSize="20" />
