@@ -19,8 +19,8 @@ import { useUsers } from "../../services/hooks/useUsers";
 import { useState } from "react";
 
 export default function UserList() {
-  const [page, setPage] = useState(0);
-  const { data, isLoading, isFetching, error } = useUsers();
+  const [page, setPage] = useState(1);
+  const { data, isLoading, isFetching, error } = useUsers(page);
 
   return (
     <>
@@ -66,9 +66,9 @@ export default function UserList() {
               </Flex>
             ) : (
               <>
-                <UsersTable users={data} />
+                <UsersTable users={data.users} />
                 <Pagination
-                  totalCountRegisters={200}
+                  totalCountRegisters={data.totalCount}
                   currentPage={page}
                   onPageChange={setPage}
                 />
