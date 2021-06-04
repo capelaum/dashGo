@@ -9,7 +9,18 @@ import {
 } from "@chakra-ui/react";
 import { UsersTableItem } from "./UsersTableItem";
 
-export function UsersTable() {
+type user = {
+  id: number;
+  name: string;
+  email: string;
+  createdAt: string;
+};
+
+interface UsersTableProps {
+  users: user[];
+}
+
+export function UsersTable({ users }: UsersTableProps) {
   const isWideVersion = useBreakpointValue({
     base: false,
     lg: true,
@@ -28,26 +39,15 @@ export function UsersTable() {
         </Tr>
       </Thead>
       <Tbody>
-        <UsersTableItem
-          name="Luís V. Capelletto"
-          email="luis.capelletto@gmail.com"
-          date="01 de Junho, 2021"
-          isWideVersion={isWideVersion}
-        />
-
-        <UsersTableItem
-          name="Viton"
-          email="viton@gmail.com"
-          date="02 de Junho, 2021"
-          isWideVersion={isWideVersion}
-        />
-
-        <UsersTableItem
-          name="Manga"
-          email="manga@gmail.com"
-          date="03 de Junho, 2021"
-          isWideVersion={isWideVersion}
-        />
+        {users.map(user => (
+          <UsersTableItem
+            key={user.id}
+            name={user.name}
+            email={user.email}
+            date={user.createdAt}
+            isWideVersion={isWideVersion}
+          />
+        ))}
       </Tbody>
     </Table>
   );
