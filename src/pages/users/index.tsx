@@ -16,8 +16,10 @@ import { Sidebar } from "../../components/Sidebar";
 import { UsersTable } from "../../components/UsersTable";
 import Head from "next/Head";
 import { useUsers } from "../../services/hooks/useUsers";
+import { useState } from "react";
 
 export default function UserList() {
+  const [page, setPage] = useState(0);
   const { data, isLoading, isFetching, error } = useUsers();
 
   return (
@@ -67,8 +69,8 @@ export default function UserList() {
                 <UsersTable users={data} />
                 <Pagination
                   totalCountRegisters={200}
-                  currentPage={5}
-                  onPageChange={() => {}}
+                  currentPage={page}
+                  onPageChange={setPage}
                 />
               </>
             )}
