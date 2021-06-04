@@ -6,10 +6,14 @@ import {
   Box,
   Icon,
   IconButton,
+  Link,
 } from "@chakra-ui/react";
 import { RiPencilLine } from "react-icons/ri";
+import { api } from "../../services/api";
+import { queryClient } from "../../services/queryClient";
 
 interface UsersTableItemProps {
+  id: number;
   name: string;
   email: string;
   date: string;
@@ -17,11 +21,26 @@ interface UsersTableItemProps {
 }
 
 export function UsersTableItem({
+  id,
   name,
   email,
   date,
   isWideVersion,
 }: UsersTableItemProps) {
+  async function handlePrefetchUser(userId: number) {
+    await queryClient.prefetchQuery(
+      ["users", userId],
+      async () => {
+        const response = await api.get(`users/${userId}`);
+
+        return response.data;
+      },
+      {
+        staleTime: 1000 * 60 * 10, // 10 min
+      }
+    );
+  }
+
   return (
     <Tr>
       <Td px={["4", "4", "6"]}>
@@ -29,7 +48,9 @@ export function UsersTableItem({
       </Td>
       <Td>
         <Box>
-          <Text fontWeight="bold">{name}</Text>
+          <Link color="purple.400" onMouseEnter={() => handlePrefetchUser(id)}>
+            <Text fontWeight="bold">{name}</Text>
+          </Link>
           <Text fontSize="sm" color="gray.300">
             {email}
           </Text>

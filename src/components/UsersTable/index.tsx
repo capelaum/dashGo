@@ -42,6 +42,7 @@ export function UsersTable({ users }: UsersTableProps) {
         {users.map(user => (
           <UsersTableItem
             key={user.id}
+            id={user.id}
             name={user.name}
             email={user.email}
             date={user.createdAt}

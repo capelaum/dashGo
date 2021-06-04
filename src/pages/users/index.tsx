@@ -1,4 +1,4 @@
-import Link from "next/link";
+import NextLink from "next/link";
 import { RiAddLine } from "react-icons/ri";
 import {
   Box,
@@ -42,7 +42,7 @@ export default function UserList() {
                 )}
               </Heading>
 
-              <Link href="/users/create" passHref>
+              <NextLink href="/users/create" passHref>
                 <Button
                   as="a"
                   size="sm"
@@ -53,7 +53,7 @@ export default function UserList() {
                 >
                   Criar novo
                 </Button>
-              </Link>
+              </NextLink>
             </Flex>
 
             {isLoading ? (
