@@ -1,7 +1,15 @@
-import { useEffect } from "react";
 import Link from "next/link";
 import { RiAddLine } from "react-icons/ri";
-import { Box, Button, Flex, Heading, Icon } from "@chakra-ui/react";
+import { useQuery } from "react-query";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Icon,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
 
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
@@ -9,11 +17,12 @@ import { Sidebar } from "../../components/Sidebar";
 import { UsersTable } from "../../components/UsersTable";
 
 export default function UserList() {
-  useEffect(() => {
-    fetch("http://localhost:3000/api/users")
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }, []);
+  const { data, isLoading, error } = useQuery("users", async () => {
+    const response = await fetch("http://localhost:3000/api/users");
+    const data = await response.json();
+
+    return data;
+  });
 
   return (
     <Box>
@@ -42,8 +51,20 @@ export default function UserList() {
             </Link>
           </Flex>
 
-          <UsersTable />
-          <Pagination />
+          {isLoading ? (
+            <Flex justify="center">
+              <Spinner />
+            </Flex>
+          ) : error ? (
+            <Flex justify="center">
+              <Text>Falha ao obter os dados dos usuários</Text>
+            </Flex>
+          ) : (
+            <>
+              <UsersTable />
+              <Pagination />
+            </>
+          )}
         </Box>
       </Flex>
     </Box>
